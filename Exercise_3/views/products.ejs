@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        /* General body and layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Ensure main content takes up all available vertical space */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product list styling */
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center; /* Center items */
+        }
+
+        li {
+            padding: 15px;
+            margin: 10px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 1 200px; /* Flex-grow, flex-shrink, and flex-basis */
+            text-align: center; /* Center text */
+            min-width: 200px; /* Ensure items don't get too small */
+        }
+
+        li:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        li span {
+            font-size: 1.2em;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Adjust button appearance */
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <%- include("partials/header") %>
+
+    <main>
+        <h2 style="text-align: center; font-size: 2em; margin-bottom: 20px;">Available Products</h2>
+        <ul>
+            <% products.forEach(product => { %>
+                <li>
+                    <span><%= product.name %></span>
+                    <span>$<%= product.price %></span>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+
+    <%- include("partials/footer") %>
+</body>
+</html>
